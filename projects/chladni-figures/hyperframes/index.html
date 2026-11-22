@@ -29,7 +29,7 @@
       .layer { position: absolute; inset: 0; width: 1080px; height: 1920px; }
 
       /* masked line reveal */
-      .line { display: block; overflow: hidden; padding-bottom: 0.08em; }
+      .line { display: block; overflow: hidden; padding-bottom: 0.2em; margin-bottom: -0.12em; }
       .line > .in { display: block; }
 
       .band { position: absolute; left: 72px; right: 72px; top: 140px; }
@@ -204,7 +204,7 @@
       ["#k0", "#k1", "#k2", "#k3", "#k4", "#k5"].forEach(s => tl.set(s, { opacity: 0 }, 12.6));
       steps.forEach((t, i) => {
         tl.fromTo(`#k${i}`, { opacity: 0, y: 26 }, { opacity: 1, y: 0, duration: 0.5, ease: E }, t);
-        if (i > 0) tl.to(`#k${i-1}`, { opacity: 0, y: -20, duration: 0.3, ease: EI }, t - 0.05);
+        if (i > 0) tl.to(`#k${i-1}`, { opacity: 0, y: -20, duration: 0.22, ease: EI }, t - 0.3);
       });
       tl.fromTo("#kprog", { scaleX: 0 }, { scaleX: 1, duration: 26.0 - 12.8, ease: "none" }, 12.8);
       tl.fromTo("#kfoot", { opacity: 0 }, { opacity: 1, duration: 0.5 }, 13.0);

@@ -1,0 +1,37 @@
+{
+  "num": "02",
+  "video": "pendulums_math.mp4",
+  "audio": null,
+  "math_end": 26.2,
+  "hook": {
+    "lines": [
+      {"text": "Swing one pendulum."},
+      {"text": "Leave the other alone."},
+      {"text": "Now wait.", "gold": "wait."}
+    ],
+    "times": [0.05, 0.22, 1.4],
+    "end": 3.6
+  },
+  "title": {
+    "text": "Coupled pendulums",
+    "sub": "A spring lets the motion walk from one pendulum to the other, and back again.",
+    "cap": "ω₀ = 3.148 rad/s · measured in our lab",
+    "end": 11.5
+  },
+  "why": {"t": 11.5, "lines": [{"text": "Where does"}, {"text": "the energy go?", "gold": "?"}]},
+  "steps": [
+    {"t": 12.8, "title": "Equations of motion", "tag": "torque balance"},
+    {"t": 14.9, "title": "Matrix form", "tag": "the spring couples them"},
+    {"t": 17.0, "title": "Normal coordinates", "tag": "mode 1: in phase"},
+    {"t": 19.1, "title": "The second mode", "tag": "anti-phase: the spring works"},
+    {"t": 21.2, "title": "Superpose them", "tag": "beats"},
+    {"t": 23.3, "title": "The energy swap", "tag": "beat period"}
+  ],
+  "kfoot": "ω₀ = 3.148 rad/s <b>(lab)</b> · ω₁ = 1.25 ω₀ (illustrative)",
+  "outro": {
+    "t": 26.2,
+    "lines": [{"text": "Nothing"}, {"text": "oscillates alone.", "gold": "alone."}],
+    "left": "Physics in 30s · 02",
+    "next": "Frenet–Serret"
+  }
+}

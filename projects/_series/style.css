@@ -1,0 +1,68 @@
+    <style>
+      @font-face { font-family: "Inter Display"; src: url("fonts/InterDisplay-Medium.otf"); font-weight: 500; }
+      @font-face { font-family: "Inter Display"; src: url("fonts/InterDisplay-SemiBold.otf"); font-weight: 600; }
+      @font-face { font-family: "Inter"; src: url("fonts/Inter-Regular.otf"); font-weight: 400; }
+      @font-face { font-family: "Inter"; src: url("fonts/Inter-Italic.otf"); font-weight: 400; font-style: italic; }
+      @font-face { font-family: "Inter"; src: url("fonts/Inter-Medium.otf"); font-weight: 500; }
+      @font-face { font-family: "Inter"; src: url("fonts/Inter-SemiBold.otf"); font-weight: 600; }
+      :root {
+        --ink: #f2f2f2;
+        --muted: #9ba2af;
+        --edge: #4d5466;
+        --panel: #0e1014;
+        --blue: #6fa8ff;
+        --lav: #b7a6f5;
+        --gold: #e6c36a;
+      }
+      html, body { margin: 0; background: #000; }
+      body { font-family: "Inter Display", "Inter", sans-serif; color: var(--ink); }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: #000; }
+      .fill { position: absolute; inset: 0; width: 1080px; height: 1920px; }
+      #plate { object-fit: cover; }
+      .layer { position: absolute; inset: 0; width: 1080px; height: 1920px; }
+
+      /* masked line reveal */
+      .line { display: block; overflow: hidden; padding-bottom: 0.2em; margin-bottom: -0.12em; }
+      .line > .in { display: block; }
+
+      .band { position: absolute; left: 72px; right: 72px; top: 140px; }
+      .h1 { font-size: 82px; line-height: 1.02; font-weight: 600; letter-spacing: -0.02em; }
+      .h1x { font-size: 100px; line-height: 1.0; font-weight: 600; letter-spacing: -0.025em; }
+      .gold { color: var(--gold); }
+      .lav { color: var(--lav); }
+      .sub { font-family: "Inter", sans-serif; font-size: 34px; line-height: 1.32; color: var(--muted); max-width: 860px; margin-top: 22px; font-weight: 400; }
+      .cap { font-family: "Inter", sans-serif; font-size: 22px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); }
+
+      #series { position: absolute; left: 72px; top: 70px; display: flex; gap: 18px; align-items: center; }
+      #series .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--gold); display: block; }
+
+      /* readout under the plate */
+      #readout { position: absolute; left: 72px; right: 72px; top: 1398px; height: 170px; display: flex; justify-content: space-between; }
+      .ro { display: flex; flex-direction: column; gap: 10px; }
+      .ro.r { align-items: flex-end; }
+      .stack { position: relative; height: 96px; overflow: hidden; }
+      .stack.f { width: 520px; }
+      .stack.m { width: 300px; }
+      .val { position: absolute; left: 0; top: 0; display: block; white-space: nowrap; font-variant-numeric: tabular-nums; }
+      .stack.m .val { left: auto; right: 0; }
+      .fval { font-size: 84px; font-weight: 600; letter-spacing: -0.02em; line-height: 96px; }
+      .fval small { font-size: 40px; color: var(--muted); font-weight: 500; margin-left: 10px; letter-spacing: 0; }
+      .mval { font-size: 64px; font-weight: 500; line-height: 96px; color: var(--lav); }
+      .meter { width: 936px; height: 2px; background: #1b1d22; position: absolute; left: 72px; top: 1380px; }
+      .meter > .bar { display: block; width: 936px; height: 2px; background: linear-gradient(90deg, var(--blue), var(--lav), var(--gold)); transform-origin: 0 50%; }
+
+      /* step kicker (math section) */
+      #kick { position: absolute; left: 596px; top: 176px; width: 420px; height: 420px; }
+      .kstep { position: absolute; left: 0; top: 0; width: 420px; }
+      .knum { margin-bottom: 18px; }
+      .ktitle { font-size: 52px; line-height: 1.04; font-weight: 600; letter-spacing: -0.015em; }
+      .ktag { font-family: "Inter", sans-serif; font-size: 30px; color: var(--blue); margin-top: 14px; font-style: italic; }
+      #kfoot { position: absolute; left: 0; top: 368px; width: 420px; font-family: "Inter", sans-serif; font-size: 24px; color: var(--muted); }
+      #kfoot b { color: var(--lav); font-weight: 500; }
+      .kbar { position: absolute; left: 0; top: 344px; width: 420px; height: 2px; background: #1b1d22; }
+      .kbar > i { display: block; width: 420px; height: 2px; background: var(--gold); transform-origin: 0 50%; }
+
+      #endtag { position: absolute; left: 72px; top: 1430px; width: 936px; display: flex; justify-content: space-between; align-items: baseline; }
+      #endtag .next { font-family: "Inter", sans-serif; font-size: 30px; color: var(--ink); }
+      #endtag .next b { color: var(--gold); font-weight: 600; }
+    </style>
