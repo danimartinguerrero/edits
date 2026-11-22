@@ -1,0 +1,37 @@
+{
+  "num": "04",
+  "video": "vanallen_math.mp4",
+  "audio": null,
+  "math_end": 26.2,
+  "hook": {
+    "lines": [
+      {"text": "Earth keeps a cage"},
+      {"text": "you can't see."},
+      {"text": "Follow one proton.", "gold": "one proton."}
+    ],
+    "times": [0.05, 0.22, 1.4],
+    "end": 3.6
+  },
+  "title": {
+    "text": "Van Allen belts",
+    "sub": "It spirals around a field line, bounces between the poles and drifts around the planet, never escaping.",
+    "cap": "inner belt · L = 2 · pitch angle 36°",
+    "end": 11.5
+  },
+  "why": {"t": 11.5, "lines": [{"text": "Why doesn't"}, {"text": "it escape?", "gold": "?"}]},
+  "steps": [
+    {"t": 12.8, "title": "Lorentz force", "tag": "it gyrates"},
+    {"t": 14.9, "title": "Magnetic moment", "tag": "an adiabatic invariant"},
+    {"t": 17.0, "title": "Energy is conserved", "tag": "pitch angle vs field"},
+    {"t": 19.1, "title": "The mirror", "tag": "stronger field pushes back"},
+    {"t": 21.2, "title": "Earth's dipole", "tag": "field grows toward the poles"},
+    {"t": 23.3, "title": "The trap", "tag": "a magnetic bottle"}
+  ],
+  "kfoot": "real dipole + Boris integration · gyroradius <b>exaggerated</b>",
+  "outro": {
+    "t": 26.2,
+    "lines": [{"text": "A cage"}, {"text": "made of field.", "gold": "field."}],
+    "left": "Physics in 30s · 04",
+    "next": "the virial theorem"
+  }
+}
