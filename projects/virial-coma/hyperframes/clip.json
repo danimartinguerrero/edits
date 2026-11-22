@@ -1,0 +1,37 @@
+{
+  "num": "05",
+  "video": "virial_math.mp4",
+  "audio": null,
+  "math_end": 26.2,
+  "hook": {
+    "lines": [
+      {"text": "A thousand galaxies,"},
+      {"text": "bound by gravity."},
+      {"text": "Let's weigh them.", "gold": "weigh them."}
+    ],
+    "times": [0.05, 0.22, 1.4],
+    "end": 3.6
+  },
+  "title": {
+    "text": "The Coma cluster",
+    "sub": "Colour is Doppler shift: blue galaxies come toward us, red ones move away. Their spread in speed is a scale.",
+    "cap": "N-body cluster in virial equilibrium · 2⟨T⟩ ≈ −⟨V⟩",
+    "end": 11.5
+  },
+  "why": {"t": 11.5, "lines": [{"text": "How can speed"}, {"text": "measure mass?", "gold": "?"}]},
+  "steps": [
+    {"t": 12.8, "title": "The virial", "tag": "Clausius"},
+    {"t": 14.9, "title": "Average it", "tag": "bounded motion"},
+    {"t": 17.0, "title": "Euler's lemma", "tag": "homogeneous potential"},
+    {"t": 19.1, "title": "Gravity", "tag": "degree n = −1"},
+    {"t": 21.2, "title": "Weigh the cluster", "tag": "speeds → mass"},
+    {"t": 23.3, "title": "Zwicky, 1933", "tag": "the missing mass"}
+  ],
+  "kfoot": "mass from motion ≫ mass from light → <b>dark matter</b>",
+  "outro": {
+    "t": 26.2,
+    "lines": [{"text": "Most of it"}, {"text": "doesn't shine.", "gold": "doesn't shine."}],
+    "left": "Physics in 30s · 05",
+    "next": "collisions"
+  }
+}

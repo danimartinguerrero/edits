@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>The Coma cluster</title>
+    <script src="vendor/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Inter Display"; src: url("fonts/InterDisplay-Medium.otf"); font-weight: 500; }
+      @font-face { font-family: "Inter Display"; src: url("fonts/InterDisplay-SemiBold.otf"); font-weight: 600; }
+      @font-face { font-family: "Inter"; src: url("fonts/Inter-Regular.otf"); font-weight: 400; }
+      @font-face { font-family: "Inter"; src: url("fonts/Inter-Italic.otf"); font-weight: 400; font-style: italic; }
+      @font-face { font-family: "Inter"; src: url("fonts/Inter-Medium.otf"); font-weight: 500; }
+      @font-face { font-family: "Inter"; src: url("fonts/Inter-SemiBold.otf"); font-weight: 600; }
+      :root {
+        --ink: #f2f2f2;
+        --muted: #9ba2af;
+        --edge: #4d5466;
+        --panel: #0e1014;
+        --blue: #6fa8ff;
+        --lav: #b7a6f5;
+        --gold: #e6c36a;
+      }
+      html, body { margin: 0; background: #000; }
+      body { font-family: "Inter Display", "Inter", sans-serif; color: var(--ink); }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: #000; }
+      .fill { position: absolute; inset: 0; width: 1080px; height: 1920px; }
+      #plate { object-fit: cover; }
+      .layer { position: absolute; inset: 0; width: 1080px; height: 1920px; }
+
+      /* masked line reveal */
+      .line { display: block; overflow: hidden; padding-bottom: 0.2em; margin-bottom: -0.12em; }
+      .line > .in { display: block; }
+
+      .band { position: absolute; left: 72px; right: 72px; top: 140px; }
+      .h1 { font-size: 82px; line-height: 1.02; font-weight: 600; letter-spacing: -0.02em; }
+      .h1x { font-size: 100px; line-height: 1.0; font-weight: 600; letter-spacing: -0.025em; }
+      .gold { color: var(--gold); }
+      .lav { color: var(--lav); }
+      .sub { font-family: "Inter", sans-serif; font-size: 34px; line-height: 1.32; color: var(--muted); max-width: 860px; margin-top: 22px; font-weight: 400; }
+      .cap { font-family: "Inter", sans-serif; font-size: 22px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); }
+
+      #series { position: absolute; left: 72px; top: 70px; display: flex; gap: 18px; align-items: center; }
+      #series .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--gold); display: block; }
+
+      /* readout under the plate */
+      #readout { position: absolute; left: 72px; right: 72px; top: 1398px; height: 170px; display: flex; justify-content: space-between; }
+      .ro { display: flex; flex-direction: column; gap: 10px; }
+      .ro.r { align-items: flex-end; }
+      .stack { position: relative; height: 96px; overflow: hidden; }
+      .stack.f { width: 520px; }
+      .stack.m { width: 300px; }
+      .val { position: absolute; left: 0; top: 0; display: block; white-space: nowrap; font-variant-numeric: tabular-nums; }
+      .stack.m .val { left: auto; right: 0; }
+      .fval { font-size: 84px; font-weight: 600; letter-spacing: -0.02em; line-height: 96px; }
+      .fval small { font-size: 40px; color: var(--muted); font-weight: 500; margin-left: 10px; letter-spacing: 0; }
+      .mval { font-size: 64px; font-weight: 500; line-height: 96px; color: var(--lav); }
+      .meter { width: 936px; height: 2px; background: #1b1d22; position: absolute; left: 72px; top: 1380px; }
+      .meter > .bar { display: block; width: 936px; height: 2px; background: linear-gradient(90deg, var(--blue), var(--lav), var(--gold)); transform-origin: 0 50%; }
+
+      /* step kicker (math section) */
+      #kick { position: absolute; left: 596px; top: 176px; width: 420px; height: 420px; }
+      .kstep { position: absolute; left: 0; top: 0; width: 420px; }
+      .knum { margin-bottom: 18px; }
+      .ktitle { font-size: 52px; line-height: 1.04; font-weight: 600; letter-spacing: -0.015em; }
+      .ktag { font-family: "Inter", sans-serif; font-size: 30px; color: var(--blue); margin-top: 14px; font-style: italic; }
+      #kfoot { position: absolute; left: 0; top: 368px; width: 420px; font-family: "Inter", sans-serif; font-size: 24px; color: var(--muted); }
+      #kfoot b { color: var(--lav); font-weight: 500; }
+      .kbar { position: absolute; left: 0; top: 344px; width: 420px; height: 2px; background: #1b1d22; }
+      .kbar > i { display: block; width: 420px; height: 2px; background: var(--gold); transform-origin: 0 50%; }
+
+      #endtag { position: absolute; left: 72px; top: 1430px; width: 936px; display: flex; justify-content: space-between; align-items: baseline; }
+      #endtag .next { font-family: "Inter", sans-serif; font-size: 30px; color: var(--ink); }
+      #endtag .next b { color: var(--gold); font-weight: 600; }
+    </style>
+
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-width="1080" data-height="1920" data-duration="30">
+      <video id="bg" class="clip fill" src="assets/virial_math.mp4" data-start="0" data-duration="30" data-track-index="0" muted playsinline></video>
+
+      <section id="seriesL" class="clip layer" data-start="0" data-duration="30" data-track-index="1">
+        <div id="series"><i class="dot"></i><span class="cap">Physics in 30s · 05</span></div>
+      </section>
+
+      <section id="hook" class="clip layer" data-start="0" data-duration="3.8000000000000003" data-track-index="2">
+        <div class="band">
+          <span class="line"><span class="in h1" id="hk0">A thousand galaxies,</span></span>
+          <span class="line"><span class="in h1" id="hk1">bound by gravity.</span></span>
+          <span class="line"><span class="in h1" id="hk2">Let's <span class="gold">weigh them.</span></span></span>
+        </div>
+      </section>
+
+      <section id="title" class="clip layer" data-start="3.4" data-duration="8.3" data-track-index="3">
+        <div class="band">
+          <span class="line"><span class="in h1x" id="tt1">The Coma cluster</span></span>
+          <div class="sub" id="tt2">Colour is Doppler shift: blue galaxies come toward us, red ones move away. Their spread in speed is a scale.</div>
+          <div class="cap" id="tt3" style="margin-top:26px;color:var(--lav);text-transform:none;letter-spacing:0.04em;font-size:26px">N-body cluster in virial equilibrium · 2⟨T⟩ ≈ −⟨V⟩</div>
+        </div>
+      </section>
+
+      <section id="why" class="clip layer" data-start="11.5" data-duration="1.5" data-track-index="4">
+        <div class="band">
+          <span class="line"><span class="in h1x" id="wy0">How can speed</span></span>
+          <span class="line"><span class="in h1x" id="wy1">measure mass<span class="gold">?</span></span></span>
+        </div>
+      </section>
+
+      <section id="kicker" class="clip layer" data-start="12.600000000000001" data-duration="13.699999999999998" data-track-index="6">
+        <div id="kick">
+          <div class="kstep" id="k0"><div class="cap knum">Step 1 / 6</div><div class="ktitle">The virial</div><div class="ktag">Clausius</div></div>
+          <div class="kstep" id="k1"><div class="cap knum">Step 2 / 6</div><div class="ktitle">Average it</div><div class="ktag">bounded motion</div></div>
+          <div class="kstep" id="k2"><div class="cap knum">Step 3 / 6</div><div class="ktitle">Euler's lemma</div><div class="ktag">homogeneous potential</div></div>
+          <div class="kstep" id="k3"><div class="cap knum">Step 4 / 6</div><div class="ktitle">Gravity</div><div class="ktag">degree n = −1</div></div>
+          <div class="kstep" id="k4"><div class="cap knum">Step 5 / 6</div><div class="ktitle">Weigh the cluster</div><div class="ktag">speeds → mass</div></div>
+          <div class="kstep" id="k5"><div class="cap knum">Step 6 / 6</div><div class="ktitle">Zwicky, 1933</div><div class="ktag">the missing mass</div></div>
+          <div class="kbar"><i id="kprog"></i></div>
+          <div id="kfoot">mass from motion ≫ mass from light → <b>dark matter</b></div>
+        </div>
+      </section>
+
+      <section id="outro" class="clip layer" data-start="26.0" data-duration="4.000000000000001" data-track-index="7">
+        <div class="band">
+          <span class="line"><span class="in h1x" id="ot0">Most of it</span></span>
+          <span class="line"><span class="in h1x" id="ot1"><span class="gold">doesn't shine.</span></span></span>
+        </div>
+        <div id="endtag" style="top:1430px">
+          <span class="cap" id="et1">Physics in 30s · 05</span>
+          <span class="next" id="et2">next → <b>collisions</b></span>
+        </div>
+      </section>
+      
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      const E = "power3.out", EI = "power2.in";
+      function lineIn(sel, t, d = 0.6) { tl.fromTo(sel, { yPercent: 110 }, { yPercent: 0, duration: d, ease: E }, t); }
+      function lineOut(sel, t, d = 0.35) { tl.to(sel, { yPercent: -110, duration: d, ease: EI }, t); }
+      tl.fromTo("#series", { opacity: 0, x: -16 }, { opacity: 1, x: 0, duration: 0.6, ease: E }, 0.1);
+      lineIn("#hk0", 0.05);lineIn("#hk1", 0.22);lineIn("#hk2", 1.4);
+      lineOut(["#hk0","#hk1","#hk2"], 3.15);
+      lineIn("#tt1", 3.65, 0.7);
+      tl.fromTo("#tt2", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.6, ease: E }, 4.0);
+      if (document.getElementById("tt3")) tl.fromTo("#tt3", { opacity: 0 }, { opacity: 1, duration: 0.6 }, 4.5);
+      lineOut("#tt1", 11.15);
+      tl.to(["#tt2", "#tt3"].filter(s => document.querySelector(s)), { opacity: 0, y: -12, duration: 0.3, ease: EI }, 11.15);
+      lineIn("#wy0", 11.55, 0.5);lineIn("#wy1", 11.66, 0.5);
+      lineOut(["#wy0","#wy1"], 12.55, 0.35);
+      const steps = [12.8, 14.9, 17.0, 19.1, 21.2, 23.3];
+      steps.forEach((t, i) => tl.set(`#k${i}`, { opacity: 0 }, 12.600000000000001));
+      steps.forEach((t, i) => {
+        tl.fromTo(`#k${i}`, { opacity: 0, y: 26 }, { opacity: 1, y: 0, duration: 0.5, ease: E }, t - 0.05);
+        if (i > 0) tl.to(`#k${i-1}`, { opacity: 0, y: -20, duration: 0.22, ease: EI }, t - 0.3);
+      });
+      tl.fromTo("#kprog", { scaleX: 0 }, { scaleX: 1, duration: 13.20, ease: "none" }, 12.8);
+      tl.fromTo("#kfoot", { opacity: 0 }, { opacity: 1, duration: 0.5 }, 13.0);
+      tl.to("#kick", { opacity: 0, duration: 0.35 }, 25.9);
+      lineIn("#ot0", 26.45, 0.7);lineIn("#ot1", 26.62, 0.7);
+      tl.fromTo("#et1", { opacity: 0 }, { opacity: 1, duration: 0.5 }, 26.599999999999998);
+      tl.fromTo("#et2", { opacity: 0, x: 20 }, { opacity: 1, x: 0, duration: 0.6, ease: E }, 28.0);
+      
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
