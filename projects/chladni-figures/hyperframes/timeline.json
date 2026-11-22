@@ -1,0 +1,80 @@
+{
+  "fps": 30,
+  "duration": 30.0,
+  "modes": [
+    {
+      "start": 0.45,
+      "end": 3.6,
+      "n": 1,
+      "m": 3,
+      "sign": 1,
+      "f": 230
+    },
+    {
+      "start": 3.6,
+      "end": 6.2,
+      "n": 2,
+      "m": 5,
+      "sign": 1,
+      "f": 667
+    },
+    {
+      "start": 6.2,
+      "end": 8.8,
+      "n": 3,
+      "m": 6,
+      "sign": 1,
+      "f": 1035
+    },
+    {
+      "start": 8.8,
+      "end": 11.7,
+      "n": 4,
+      "m": 7,
+      "sign": 1,
+      "f": 1495
+    },
+    {
+      "start": 26.4,
+      "end": 30.0,
+      "n": 5,
+      "m": 8,
+      "sign": -1,
+      "f": 2047
+    }
+  ],
+  "steps": [
+    {
+      "t": 12.8,
+      "title": "plate equation",
+      "tag": "Kirchhoff\u2013Love"
+    },
+    {
+      "t": 14.9,
+      "title": "standing wave",
+      "tag": "separate time"
+    },
+    {
+      "t": 17.0,
+      "title": "factor the operator",
+      "tag": "Helmholtz"
+    },
+    {
+      "t": 19.1,
+      "title": "try a mode",
+      "tag": "free edges"
+    },
+    {
+      "t": 21.2,
+      "title": "the pitch",
+      "tag": "Chladni\u2019s law"
+    },
+    {
+      "t": 23.3,
+      "title": "where the sand stops",
+      "tag": "nodal lines"
+    }
+  ],
+  "math_start": 12.0,
+  "math_end": 26.2
+}

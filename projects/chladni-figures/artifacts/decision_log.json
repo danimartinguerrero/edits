@@ -1,0 +1,22 @@
+{
+  "project": "chladni-figures",
+  "series": "Physics in 30s",
+  "pipeline": "animation",
+  "decisions": [
+    {
+      "category": "render_runtime_selection",
+      "options_considered": [
+        {"option": "manim+ffmpeg", "note": "recommended by agent: physics sims + LaTeX native"},
+        {"option": "manim+hyperframes", "note": "Manim for physics/equations, HyperFrames (HTML/GSAP) for kinetic typography + final compose"},
+        {"option": "remotion", "rejected_because": "runtime not available on this machine (remotion-composer/node_modules missing); would add little over Manim for math"}
+      ],
+      "selected": "manim+hyperframes",
+      "reason": "User choice. Manim renders the plate simulation and step-by-step LaTeX; HyperFrames composes the 1080x1920 frame with typography and audio."
+    },
+    {"category": "composition_mode", "selected": "atelier", "reason": "Hero series; bespoke scenes, no stock scene types."},
+    {"category": "language", "selected": "English on-screen text", "reason": "User choice."},
+    {"category": "audio", "selected": "synthesized driving tones only (no music, no narration)", "reason": "User prefers silent clips except where Chladni frequencies should be heard."},
+    {"category": "visual_identity", "selected": "palette from user's Mecánica I notes: #000 bg, #0E1014 panels, #F2F2F2 ink, #9BA2AF labels, blue #6FA8FF / lavender #B7A6F5 / gold #E6C36A accents; 'THEOREM' tabbed box as recurring motif"},
+    {"category": "reference_analysis", "kept": "one derivation step every ~2.3 s, hook in first 2 s, real LaTeX", "changed": "phenomenon first (simulated), color-coded symbols, previous step stays dimmed above for continuity, theorem box payoff, editorial typography layer"}
+  ]
+}
