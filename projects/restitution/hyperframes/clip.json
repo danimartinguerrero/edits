@@ -1,0 +1,37 @@
+{
+  "num": "06",
+  "video": "restitution_math.mp4",
+  "audio": null,
+  "math_end": 26.2,
+  "hook": {
+    "lines": [
+      {"text": "Drop a ball."},
+      {"text": "Infinitely many bounces…"},
+      {"text": "in finite time.", "gold": "finite time."}
+    ],
+    "times": [0.05, 0.7, 2.6],
+    "end": 6.0
+  },
+  "title": {
+    "text": "Restitution",
+    "sub": "Same collision, three materials: m hits 3m at rest. The CM (triangle) never notices.",
+    "cap": "e = 1 elastic · e = 0.5 · e = 0 they stick",
+    "end": 11.5
+  },
+  "why": {"t": 11.5, "lines": [{"text": "Where does"}, {"text": "the energy go?", "gold": "?"}]},
+  "steps": [
+    {"t": 12.8, "title": "Percussions", "tag": "compression, then restitution"},
+    {"t": 14.9, "title": "Huygens–Newton", "tag": "relative velocity × e"},
+    {"t": 17.0, "title": "Go to the CM", "tag": "just reverse and scale"},
+    {"t": 19.1, "title": "Energy lost", "tag": "only the relative part"},
+    {"t": 21.2, "title": "The bouncing ball", "tag": "a geometric series"},
+    {"t": 23.3, "title": "Zeno, defeated", "tag": "the series converges"}
+  ],
+  "kfoot": "e = 0.8 · heights e²ⁿh · flights ∝ eⁿ",
+  "outro": {
+    "t": 26.2,
+    "lines": [{"text": "Infinity"}, {"text": "fits in 5 seconds.", "gold": "5 seconds."}],
+    "left": "Physics in 30s · 06",
+    "next": "Landau diagrams"
+  }
+}

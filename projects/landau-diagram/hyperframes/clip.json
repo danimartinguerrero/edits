@@ -1,0 +1,37 @@
+{
+  "num": "07",
+  "video": "landau_math.mp4",
+  "audio": null,
+  "math_end": 26.2,
+  "hook": {
+    "lines": [
+      {"text": "Hit a billiard ball."},
+      {"text": "Aim wherever you like."},
+      {"text": "They split at 90°.", "gold": "90°."}
+    ],
+    "times": [0.05, 0.22, 2.4],
+    "end": 6.0
+  },
+  "title": {
+    "text": "The Landau diagram",
+    "sub": "Every elastic collision is a point C on one circle. Gold: projectile, blue: target.",
+    "cap": "λ = m₁/m₂ · equal masses: A sits on the circle",
+    "end": 11.5
+  },
+  "why": {"t": 11.5, "lines": [{"text": "Why always"}, {"text": "a right angle?", "gold": "?"}]},
+  "steps": [
+    {"t": 12.8, "title": "Go to the CM", "tag": "momenta only rotate"},
+    {"t": 14.9, "title": "Back to the lab", "tag": "chain the pieces"},
+    {"t": 17.0, "title": "Read the angles", "tag": "λ = 1/2 shown"},
+    {"t": 19.1, "title": "Equal masses", "tag": "Thales: a right angle"},
+    {"t": 21.2, "title": "Heavy projectile", "tag": "a maximum deflection"},
+    {"t": 23.3, "title": "Energy to the target", "tag": "head-on is best"}
+  ],
+  "kfoot": "AO = λq · OB = q · circle of radius q",
+  "outro": {
+    "t": 26.2,
+    "lines": [{"text": "One circle,"}, {"text": "every collision.", "gold": "every collision."}],
+    "left": "Physics in 30s · 07",
+    "next": "potential diagrams"
+  }
+}
