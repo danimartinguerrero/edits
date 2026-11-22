@@ -1,0 +1,92 @@
+{
+  "num": "08",
+  "video": "potential_math.mp4",
+  "audio": null,
+  "math_end": 26.2,
+  "hook": {
+    "lines": [
+      {
+        "text": "Draw one curve."
+      },
+      {
+        "text": "Draw one line."
+      },
+      {
+        "text": "Read the whole orbit.",
+        "gold": "whole orbit."
+      }
+    ],
+    "times": [
+      0.05,
+      0.4,
+      1.5
+    ],
+    "end": 3.6
+  },
+  "title": {
+    "text": "Potential diagrams",
+    "sub": "Raise the energy line: circle, then ellipse, then escape. The planet lives only where the curve sits below the line.",
+    "cap": "Kepler · μ = k = L = 1",
+    "end": 11.5
+  },
+  "why": {
+    "t": 11.5,
+    "lines": [
+      {
+        "text": "Why does a line"
+      },
+      {
+        "text": "decide its fate?",
+        "gold": "?"
+      }
+    ]
+  },
+  "steps": [
+    {
+      "t": 12.8,
+      "title": "Energy diagram",
+      "tag": "where motion is allowed"
+    },
+    {
+      "t": 14.9,
+      "title": "Equilibrium",
+      "tag": "small oscillations"
+    },
+    {
+      "t": 17.0,
+      "title": "Two bodies → one",
+      "tag": "reduced mass μ, L conserved"
+    },
+    {
+      "t": 19.1,
+      "title": "Effective potential",
+      "tag": "a 1D problem again"
+    },
+    {
+      "t": 21.2,
+      "title": "The orbit",
+      "tag": "a conic of eccentricity ε"
+    },
+    {
+      "t": 23.3,
+      "title": "Its fate",
+      "tag": "read off E"
+    }
+  ],
+  "kfoot": "gold line: energy E · dots: turning points",
+  "outro": {
+    "t": 26.2,
+    "lines": [
+      {
+        "text": "One line"
+      },
+      {
+        "text": "decides the orbit.",
+        "gold": "the orbit."
+      }
+    ],
+    "left": "Physics in 30s · 08",
+    "next": "more physics soon",
+    "tag_top": 1625
+  }
+}
