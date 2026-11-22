@@ -1,0 +1,37 @@
+{
+  "num": "03",
+  "video": "frenet_math.mp4",
+  "audio": null,
+  "math_end": 26.2,
+  "hook": {
+    "lines": [
+      {"text": "Ride along a curve."},
+      {"text": "Carry three arrows."},
+      {"text": "They know its shape.", "gold": "shape."}
+    ],
+    "times": [0.05, 0.22, 1.4],
+    "end": 3.6
+  },
+  "title": {
+    "text": "The Frenet trihedron",
+    "sub": "Tangent, normal, binormal: a frame that travels with you and turns as the curve bends and twists.",
+    "cap": "helix · κ = 0.638 · 𝒯 = 0.136 (constant)",
+    "end": 11.5
+  },
+  "why": {"t": 11.5, "lines": [{"text": "How do the"}, {"text": "arrows turn?", "gold": "?"}]},
+  "steps": [
+    {"t": 12.8, "title": "Arc length", "tag": "unit tangent τ̂"},
+    {"t": 14.9, "title": "Bend", "tag": "curvature κ, normal n̂"},
+    {"t": 17.0, "title": "Frenet–Serret", "tag": "how the frame moves"},
+    {"t": 19.1, "title": "Darboux vector", "tag": "the frame just rotates"},
+    {"t": 21.2, "title": "A helix", "tag": "κ and 𝒯 stay constant"},
+    {"t": 23.3, "title": "The payoff", "tag": "κ and 𝒯 are the curve"}
+  ],
+  "kfoot": "a = 1.5 · b = 0.32 · <b>ω</b> points along the axis",
+  "outro": {
+    "t": 26.2,
+    "lines": [{"text": "Two numbers"}, {"text": "draw any curve.", "gold": "any curve."}],
+    "left": "Physics in 30s · 03",
+    "next": "Van Allen belts"
+  }
+}
